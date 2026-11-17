@@ -1,0 +1,374 @@
+
+@charset "UTF-8";
+
+/* ==============================
+   COLORES PRINCIPALES
+============================== */
+
+:root {
+    --fondo: #21152b;
+    --violeta: #76518f;
+    --violeta-claro: #b99acb;
+    --rosa: #e9a8c5;
+    --verde: #a8c99a;
+    --texto: #f1eaf4;
+    --panel: rgba(48, 34, 57, 0.78);
+    --borde: rgba(210, 165, 210, 0.28);
+}
+
+/* ==============================
+   CONFIGURACIÓN GENERAL
+============================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px 16px 45px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    overflow-x: hidden;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--texto);
+
+    background: linear-gradient(
+        -45deg,
+        #21152b,
+        #493054,
+        #38533f,
+        #633c65,
+        #30233c
+    );
+
+    background-size: 400% 400%;
+    animation: fondo 20s ease infinite;
+}
+
+/* ==============================
+   TÍTULOS
+============================== */
+
+h1, h2, h3 {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0;
+    padding: 20px;
+
+    text-align: center;
+    overflow-wrap: anywhere;
+
+    color: var(--rosa);
+
+    background: rgba(39, 27, 48, 0.68);
+
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+
+    font-weight: 600;
+
+    transition: transform 0.3s ease,
+                color 0.3s ease;
+}
+
+h1 {
+    font-size: clamp(24px, 4vw, 36px);
+    color: var(--rosa);
+}
+
+h2 {
+    font-size: clamp(21px, 3vw, 29px);
+    color: var(--violeta-claro);
+}
+
+h3 {
+    font-size: clamp(19px, 2.5vw, 25px);
+    color: var(--verde);
+}
+
+h1:hover,
+h2:hover,
+h3:hover {
+    transform: translateY(-2px);
+}
+
+/* ==============================
+   PÁRRAFOS Y CUADROS
+============================== */
+
+p {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0;
+    padding: 24px;
+
+    color: var(--texto);
+
+    background: var(--panel);
+
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+
+    line-height: 1.85;
+    font-size: 16px;
+
+    overflow-wrap: anywhere;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.13);
+
+    transition: background 0.3s ease,
+                transform 0.3s ease;
+}
+
+p:hover {
+    background: rgba(66, 46, 75, 0.88);
+    transform: translateY(-2px);
+}
+
+/* ==============================
+   FONDO ANIMADO
+============================== */
+
+@keyframes fondo {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ==============================
+   ADAPTACIÓN PARA CELULARES
+============================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 18px 12px 30px;
+        gap: 14px;
+    }
+
+    h1, h2, h3 {
+        padding: 16px 12px;
+        border-radius: 12px;
+    }
+
+    p {
+        padding: 17px;
+        font-size: 15px;
+        line-height: 1.7;
+        border-radius: 12px;
+    }
+
+    h1:hover,
+    h2:hover,
+    h3:hover,
+    p:hover {
+        transform: none;
+    }
+}
+
+/* ==============================
+   CELULARES PEQUEÑOS
+============================== */
+
+@media (max-width: 360px) {
+
+    body {
+        padding: 12px 9px 24px;
+    }
+
+    h1, h2, h3 {
+        padding: 14px 10px;
+    }
+
+    p {
+        padding: 14px;
+        font-size: 14px;
+    }
+}
+
+/* ==============================
+   ACCESIBILIDAD
+============================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ===================================
+   REDES SOCIALES
+=================================== */
+
+.redes-sociales {
+    width: 100%;
+    max-width: 1100px;
+
+    padding: 24px;
+
+    text-align: center;
+
+    background: var(--panel);
+
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.13);
+}
+
+.redes-sociales h2 {
+    margin-bottom: 20px;
+}
+
+/* CONTENEDOR */
+
+.lista-redes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+/* BOTONES */
+
+.enlace-plataforma {
+    min-width: 145px;
+    min-height: 48px;
+
+    padding: 13px 20px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.enlace-plataforma:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.15);
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* COLORES DE PLATAFORMAS */
+
+.youtube {
+    background: #c83b55;
+}
+
+.twitch {
+    background: #7651a8;
+}
+
+.tiktok {
+    background: #315b52;
+}
+
+.discord {
+    background: #5865f2;
+}
+
+/* ACCESIBILIDAD */
+
+.enlace-plataforma:focus-visible {
+    outline: 3px solid var(--rosa);
+    outline-offset: 4px;
+}
+
+/* ===================================
+   AVATAR
+=================================== */
+
+.imagen-avatar {
+    width: 220px;
+    height: 220px;
+
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px dashed var(--rosa);
+    border-radius: 20px;
+
+    background: rgba(118, 81, 143, 0.20);
+
+    color: var(--rosa);
+
+    overflow: hidden;
+}
+
+/* ===================================
+   CELULARES
+=================================== */
+
+@media (max-width: 600px) {
+
+    .redes-sociales {
+        padding: 17px 14px;
+    }
+
+    .lista-redes {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .enlace-plataforma {
+        width: 100%;
+    }
+
+    .imagen-avatar {
+        width: 180px;
+        height: 180px;
+    }
+
+    .enlace-plataforma:hover {
+        transform: none;
+    }
+
+}
